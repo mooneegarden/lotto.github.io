@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table td {
+            padding: 5px;
+            border: none;
+        }
+
+        label {
+            display: block;
+            position: relative;
+            text-align: center;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .number {
+            display: inline-block;
+            position: relative;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            border-radius: 50%;
+            background-color: #eee;
+            color: #000;
+        }
+
+        .number:hover {
+            background-color: #ccc;
+        }
+
+        .number::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .number[data-color="yellow"] {
+            background-color: #FFEB3B;
+        }
+
+        .number[data-color="blue"] {
+            background-color: #2196F3;
+        }
+
+        .number[data-color="red"] {
+            background-color: #F44336;
+        }
+
+        .number[data-color="grey"] {
+            background-color: #9E9E9E;
+        }
+
+        .number[data-color="green"] {
+            background-color: #4CAF50;
+        }
+
+        .checkbox {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .checkbox:checked + .number {
+            border: 2px solid #000;
+        }
+
+        .lotto-button {
+            width: 80%;
+            margin-bottom: 20px;
+        }
+
+        .lotto-result {
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .lotto-list {
+            font-size: 16px;
+            line-height: 1.5;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="1">
+                    <span class="number" data-color="yellow">1</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="2">
+                    <span class="number" data-color="yellow">2</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="3">
+                    <span class="number" data-color="yellow">3</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="4">
+                    <span class="number" data-color="yellow">4</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="5">
+                    <span class="number" data-color="yellow">5</span>
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="6">
+                    <span class="number" data-color="yellow">6</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="7">
+                    <span class="number" data-color="yellow">7</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="8">
+                    <span class="number" data-color="yellow">8</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="9">
+                    <span class="number" data-color="yellow">9</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="10">
+                    <span class="number" data-color="yellow">10</span>
+                </label>
+            </td>
+        </tr>
+        <!-- 나머지 숫자들을 추가해주세요 -->
+        <!-- 11부터 45까지의 숫자를 추가합니다 -->
+        <tr>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="11">
+                    <span class="number" data-color="blue">11</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="12">
+                    <span class="number" data-color="blue">12</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="13">
+                    <span class="number" data-color="blue">13</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="14">
+                    <span class="number" data-color="blue">14</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="15">
+                    <span class="number" data-color="blue">15</span>
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="16">
+                    <span class="number" data-color="blue">16</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="17">
+                    <span class="number" data-color="blue">17</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="18">
+                    <span class="number" data-color="blue">18</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="19">
+                    <span class="number" data-color="blue">19</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="20">
+                    <span class="number" data-color="blue">20</span>
+                </label>
+           
+
+ </td>
+        </tr>
+        <tr>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="21">
+                    <span class="number" data-color="red">21</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="22">
+                    <span class="number" data-color="red">22</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="23">
+                    <span class="number" data-color="red">23</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="24">
+                    <span class="number" data-color="red">24</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="25">
+                    <span class="number" data-color="red">25</span>
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="26">
+                    <span class="number" data-color="red">26</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="27">
+                    <span class="number" data-color="red">27</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="28">
+                    <span class="number" data-color="red">28</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="29">
+                    <span class="number" data-color="red">29</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="30">
+                    <span class="number" data-color="red">30</span>
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="31">
+                    <span class="number" data-color="grey">31</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="32">
+                    <span class="number" data-color="grey">32</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="33">
+                    <span class="number" data-color="grey">33</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="34">
+                    <span class="number" data-color="grey">34</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="35">
+                    <span class="number" data-color="grey">35</span>
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="36">
+                    <span class="number" data-color="grey">36</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="37">
+                    <span class="number" data-color="grey">37</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="38">
+                    <span class="number" data-color="grey">38</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="39">
+                    <span class="number" data-color="grey">39</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="40">
+                    <span class="number" data-color="grey">40</span>
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="41">
+                    <span class="number" data-color="green">41</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="42">
+                    <span class="number" data-color="green">42</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="43">
+                    <span class="number" data-color="green">43</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="44">
+                    <span class="number" data-color="green">44</span>
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" class="checkbox" value="45">
+                    <span class="number" data-color="green">45</span>
+                </label>
+            </td>
+        </tr>
+    </table>
+
+    <button class="lotto-button" onclick="generateLottoNumbers()">로또 번호 생성</button>
+    <div class="lotto-result" id="lottoResult"></div>
+    <div class="lotto-list" id="lot
+
+toList"></div>
+
+    <script>
+        var lottoNumbers = [];
+
+        function generateLottoNumbers() {
+            var selectedNumbers = [];
+            var checkboxes = document.getElementsByClassName('checkbox');
+
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    selectedNumbers.push(parseInt(checkboxes[i].value));
+                }
+            }
+
+            var requiredSelections = 6 - selectedNumbers.length;
+            var availableNumbers = [];
+            for (var j = 1; j <= 45; j++) {
+                if (!selectedNumbers.includes(j)) {
+                    availableNumbers.push(j);
+                }
+            }
+
+            var generatedNumbers = [];
+            for (var k = 0; k < requiredSelections; k++) {
+                var randomIndex = Math.floor(Math.random() * availableNumbers.length);
+                var randomNumber = availableNumbers[randomIndex];
+                generatedNumbers.push(randomNumber);
+                availableNumbers.splice(randomIndex, 1);
+            }
+
+            var finalNumbers = selectedNumbers.concat(generatedNumbers);
+            finalNumbers.sort(function(a, b) {
+                return a - b;
+            });
+
+            var lottoResult = document.getElementById('lottoResult');
+            var lottoList = document.getElementById('lottoList');
+
+            lottoResult.innerText = finalNumbers.join(', ');
+
+            var newLottoNumber = "[" + (lottoNumbers.length + 1) + "] " + finalNumbers.join(', ');
+            lottoNumbers.push(newLottoNumber);
+            lottoList.innerHTML = lottoNumbers.join('<br>');
+        }
+    </script>
+</body>
+</html>
